@@ -32,8 +32,11 @@ function initRoll(){
         let num3 = generateRandom()
         let num4 = generateRandom()
         let num5 = generateRandom()
-     
-        console.log(`dice1 is ${num1}, dice2 is ${num2}`);
+     diceOne.innerText = num1
+     diceTwo.innerText = num2
+     diceThree.innerText = num3
+     diceFour.innerText = num4
+     diceFive.innerText = num5
 }
 
 function generateRandom(){
