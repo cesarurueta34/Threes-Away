@@ -25,21 +25,49 @@ let num5 = null
 let unrolledDice =[num1, num2, num3, num4, num5]
 
 function initRoll(){
+  if (count === 0 ){ 
     count++
-     //generate 5 random numbers and populate them into the 5 divs.  
-        let num1 = generateRandom()
-        let num2 = generateRandom()
-        let num3 = generateRandom()
-        let num4 = generateRandom()
-        let num5 = generateRandom()
+        let num1 = genRan()
+        let num2 = genRan()
+        let num3 = genRan()
+        let num4 = genRan()
+        let num5 = genRan()
      diceOne.innerText = num1
      diceTwo.innerText = num2
      diceThree.innerText = num3
      diceFour.innerText = num4
      diceFive.innerText = num5
+  } 
+//after roll 1 I want to count the number of dice
+//that do not have value 3 minus the lowest dice
+//this will give me the total number of dice of roll two
+
+}
+function select(){
+    //add listeners to pull the items that need to be pulled away. here auto take away the threes
 }
 
-function generateRandom(){
+function rollTwo(){
+
+}
+
+
+
+function rollThree(){
+
+}
+
+
+function rollFour(){
+
+}
+
+function rollFive(){
+
+}
+
+
+function genRan(){
     let value = Math.floor(Math.random() * 6) +1
     return value
 }
