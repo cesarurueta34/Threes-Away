@@ -1,0 +1,37 @@
+.dice{
+    display:inline-block;
+    border: black solid 2px;
+    padding: 50px;
+}
+.roll{
+    display:inline-block;
+    border: black solid 2px;
+    cursor:pointer
+}
+.end{
+    display:inline-block;
+    border: black solid 2px;
+    cursor:pointer  
+}
+body{
+     text-align: center;
+ }
+ 
+ .player-one{
+    font-size: 50px;
+    font-weight: bold;
+ }
+ .score-box{
+     margin-top: 50px;
+     font-size: 20px;
+     font-weight: bold;
+ }
+ .roll-count{
+    font-size: 20px;
+    font-weight: bold;
+ }
+
+ .round-display{
+     font-size: 40px;
+     font-weight: bold;
+ }
