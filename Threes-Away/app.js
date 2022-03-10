@@ -4,18 +4,20 @@ let diceTwo = document.querySelector("#dice2");
 let diceThree = document.querySelector("#dice3");
 let diceFour = document.querySelector("#dice4");
 let diceFive = document.querySelector("#dice5");
-let rolledOne = document.querySelector("#rolledOne");
-let rolledTwo = document.querySelector("#rolledTwo");
-let rolledThree = document.querySelector("#rolledThree");
-let rolledFour = document.querySelector("#rolledFour");
-let rolledFive = document.querySelector("#rolledFive");
+let rOne = document.querySelector("#rolled1");
+let rTwo = document.querySelector("#rolled2");
+let rThree = document.querySelector("#rolled3");
+let rFour = document.querySelector("#rolled4");
+let rFive = document.querySelector("#rolled5");
 
 rollButton.addEventListener("click", turnBegin)
 
 let count = 0
 
 let rolledDice = []
-
+let unrolledDice = []
+// let reducedRolledDice = [].concat.apply([], rolledDice)
+// console.log(reducedRolledDice)
 function turnBegin(){
   if (count === 0){
     initRoll()
@@ -30,7 +32,7 @@ function turnBegin(){
     fourthRoll()
     count++
   } else if(count === 4){
-    finalRoll()
+    fifthRoll()
     count++
   } else {
    console.log("stop clicking")
@@ -38,12 +40,6 @@ function turnBegin(){
 
 }
 
-
-let rollTwoDiceCount = 0
-let rollThreeDiceCount = 0
-let rollFourDiceCount = 0
-let rollFiveDiceCount = 0
-let minOne = 0
 function initRoll(){
         let num1 = genRan()
         let num2 = genRan()
@@ -62,17 +58,24 @@ function initRoll(){
      //console.log(checkThrees)
      //console.log(threesRolled)
     // console.log(`min one is ${minOne}`)
-     if (threesRolled === 0){
+     if (threesRolled == 0){
         rollTwoDiceCount = 5 - 1
         rolledDice.push(minOne) 
-        console.log(`the lowest dice was ${rolledDice}`)
+        //console.log(`the lowest dice was ${rolledDice}`)
         console.log(`the number of dice to be rolled on the next turn is ${rollTwoDiceCount}`);
-     } else{
+     } else if (threesRolled !== 0 && rolledDice.length <5){
         rollTwoDiceCount = 5 - threesRolled
-        rolledDice.push(checkThrees)
+        rolledDice.push(...checkThrees)
         console.log(`the number of dice to be rolled on the next turn is ${rollTwoDiceCount}`)
         //console.log(checkThrees)
+     } else {
+       console.log(`array full`)
      }
+      rOne.innerText = rolledDice[0]
+      rTwo.innerText = rolledDice[1]
+      rThree.innerText = rolledDice[2]
+      rFour.innerText = rolledDice[3]
+      rFive.innerText = rolledDice[4]
   } 
 //after roll 1 I want to count the number of dice
 //that do not have value 3 minus the lowest dice
@@ -84,36 +87,111 @@ console.log(`your second role was ${arraySecond}`)
 minTwo = Math.min.apply(Math, arraySecond)
 checkThrees2 = arraySecond.filter(num => num ===3)
 threesRolled2 = checkThrees2.length
-console.log(`you rolled ${threesRolled2} three on your second roll`)
+//console.log(`Minimum on roll two is ${minTwo}`)
+//console.log(`you rolled ${threesRolled2} three on your second roll`)
 
-if (threesRolled === 0){
+if (threesRolled2 == 0){
   rollThreeDiceCount = rollTwoDiceCount - 1
   rolledDice.push(minTwo) 
   console.log(`the number of dice to be rolled on the next turn is ${rollThreeDiceCount}`);
-
-} else{
+} else if(threesRolled2 !== 0 && rolledDice.length <5){
   rollThreeDiceCount = rollTwoDiceCount - threesRolled2
-  rolledDice.push(checkThrees2)
+  rolledDice.push(...checkThrees2)
   console.log(`the number of dice to be rolled on the next turn is ${rollThreeDiceCount}`)
-  
+} else {
+  console.log(`array full`)
 }
 
+rOne.innerText = rolledDice[0]
+rTwo.innerText = rolledDice[1]
+rThree.innerText = rolledDice[2]
+rFour.innerText = rolledDice[3]
+rFive.innerText = rolledDice[4]
 }
 
 
 function thirdRoll(){
-console.log("on the third roll")
+  arrayThird = Array.from({length: rollThreeDiceCount} , genRan)
+  console.log(`Your third role was ${arrayThird}`)
+  minThree =Math.min.apply(Math, arrayThird)
+  checkThrees3 =arrayThird.filter(num => num ===3)
+  threesRolled3 =checkThrees3.length
+
+  if (threesRolled3 == 0){
+    rollFourDiceCount = rollThreeDiceCount - 1
+    rolledDice.push(minThree) 
+    console.log(`the number of dice to be rolled on the next turn is ${rollFourDiceCount}`);
+  } else if(threesRolled3 !== 0 && rolledDice.length <5){
+    rollFourDiceCount = rollThreeDiceCount - threesRolled3
+    rolledDice.push(...checkThrees3)
+    console.log(`the number of dice to be rolled on the next turn is ${rollFourDiceCount}`)
+    
+  } else {
+    console.log(`array full`)
+  }
+
+  rOne.innerText = rolledDice[0]
+  rTwo.innerText = rolledDice[1]
+  rThree.innerText = rolledDice[2]
+  rFour.innerText = rolledDice[3]
+  rFive.innerText = rolledDice[4]
 }
 
 
 function fourthRoll(){
-console.log("on fourth roll")
+
+  arrayFourth = Array.from({length: rollFourDiceCount} , genRan)
+  console.log(`Your fourth role was ${arrayFourth}`)
+  minFour =Math.min.apply(Math, arrayFourth)
+  checkThrees4 =arrayFourth.filter(num => num ===3)
+  threesRolled4 =checkThrees4.length
+
+  if (threesRolled4 == 0){
+    rollFiveDiceCount = rollFourDiceCount - 1
+    rolledDice.push(minFour) 
+    console.log(`the number of dice to be rolled on the next turn is ${rollFiveDiceCount}`);
+  } else if (threesRolled4 !== 0 && rolledDice.length <=5){
+    rollFiveDiceCount = rollFourDiceCount - threesRolled4
+    rolledDice.push(...checkThrees4)
+    console.log(`the number of dice to be rolled on the next turn is ${rollFiveDiceCount}`)
+    
+  } else {
+    console.log(`array full`)
+  }
+
+  rOne.innerText = rolledDice[0]
+  rTwo.innerText = rolledDice[1]
+  rThree.innerText = rolledDice[2]
+  rFour.innerText = rolledDice[3]
+  rFive.innerText = rolledDice[4]
+
 }
 
-function finalRoll(){
-console.log("on last roll")
-}
+function fifthRoll(){
 
+  arrayFifth = Array.from({length: rollFiveDiceCount} , genRan)
+  console.log(`Your fifth role was ${arrayFifth}`)
+  minFive =Math.min.apply(Math, arrayFifth)
+  checkThrees5 =arrayFifth.filter(num => num ===3)
+  threesRolled5 =checkThrees5.length
+
+  if (threesRolled5 == 0){
+    rollSixDiceCount = rollFiveDiceCount - 1
+    rolledDice.push(minFive) 
+  } else if (threesRolled5 !== 0 && rolledDice.length < 5){
+    rollSixDiceCount = rollFiveDiceCount - threesRolled5
+    rolledDice.push(...checkThrees5)
+  } else{
+    console.log(`array full`)
+  }
+
+  rOne.innerText = rolledDice[0]
+  rTwo.innerText = rolledDice[1]
+  rThree.innerText = rolledDice[2]
+  rFour.innerText = rolledDice[3]
+  rFive.innerText = rolledDice[4]
+
+}
 
 function genRan(){
     let value = Math.floor(Math.random() * 6) +1
@@ -121,4 +199,4 @@ function genRan(){
 }
 
 
-console.log(rolledDice)
+//console.log(rolledDice)
