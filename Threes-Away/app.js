@@ -13,20 +13,42 @@ let rolledFour = document.querySelector("#rolledFour");
 let rolledFive = document.querySelector("#rolledFive");
 
 // diceOne.innerText= 5;
-rollButton.addEventListener("click", initRoll)
+rollButton.addEventListener("click", turnBegin)
 //max rolls is 5
 let count = 0
-let num1 = null
-let num2 = null
-let num3 = null
-let num4 = null
-let num5 = null
 
-let unrolledDice =[num1, num2, num3, num4, num5]
+let rolledDice = []
 
-function initRoll(){
-  if (count === 0 ){ 
+//inside of listener put a function that counts clicks
+// inside of that put if statements to run 5 seperate functions, 1 for each roll.
+//number of dice will be determined by the result of subsequent roll
+//define variable outside of scope to hold the number of dice per roll
+
+function turnBegin(){
+  if (count === 0){
+    initRoll()
     count++
+  } else if(count === 1){
+    secondRoll()
+    count++
+  } else if (count === 2){
+    thirdRoll()
+    count++
+  } else if(count === 3){
+    fourthRoll()
+    count++
+  } else if(count === 4){
+    finalRoll()
+    count++
+  } else {
+   console.log("stop clicking")
+  }
+
+}
+
+
+let rollTwoDiceCount = 0
+function initRoll(){
         let num1 = genRan()
         let num2 = genRan()
         let num3 = genRan()
@@ -37,33 +59,42 @@ function initRoll(){
      diceThree.innerText = num3
      diceFour.innerText = num4
      diceFive.innerText = num5
+     let arrayOne = [num1 , num2, num3, num4, num5]
+     let checkThrees = arrayOne.filter(num => num === 3)
+     threesRolled = checkThrees.length
+     //console.log(checkThrees)
+     //console.log(threesRolled)
+     if (threesRolled === 0){
+        rollTwoDiceCount = 5 - 1 
+     } else{
+        rollTwoDiceCount = 5 - threesRolled
+     }
+  
+     console.log(rollTwoDiceCount)
+
   } 
 //after roll 1 I want to count the number of dice
 //that do not have value 3 minus the lowest dice
 //this will give me the total number of dice of roll two
 
-}
-function select(){
-    //add listeners to pull the items that need to be pulled away. here auto take away the threes
-}
 
-function rollTwo(){
-
+function secondRoll(){
+  console.log("on the secon roll")
 }
 
 
 
-function rollThree(){
-
+function thirdRoll(){
+console.log("on the thrid roll")
 }
 
 
-function rollFour(){
-
+function fourthRoll(){
+console.log("on fourth roll")
 }
 
-function rollFive(){
-
+function finalRoll(){
+console.log("on last roll")
 }
 
 
