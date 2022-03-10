@@ -1,5 +1,3 @@
-// when pressing roll button on 1st turn generate 5 random
-//populate the random numbers into the unrolled dice squares
 let rollButton = document.querySelector(".roll");
 let diceOne = document.querySelector("#dice1");
 let diceTwo = document.querySelector("#dice2");
@@ -12,17 +10,11 @@ let rolledThree = document.querySelector("#rolledThree");
 let rolledFour = document.querySelector("#rolledFour");
 let rolledFive = document.querySelector("#rolledFive");
 
-// diceOne.innerText= 5;
 rollButton.addEventListener("click", turnBegin)
-//max rolls is 5
+
 let count = 0
 
 let rolledDice = []
-
-//inside of listener put a function that counts clicks
-// inside of that put if statements to run 5 seperate functions, 1 for each roll.
-//number of dice will be determined by the result of subsequent roll
-//define variable outside of scope to hold the number of dice per roll
 
 function turnBegin(){
   if (count === 0){
@@ -48,6 +40,10 @@ function turnBegin(){
 
 
 let rollTwoDiceCount = 0
+let rollThreeDiceCount = 0
+let rollFourDiceCount = 0
+let rollFiveDiceCount = 0
+let minOne = 0
 function initRoll(){
         let num1 = genRan()
         let num2 = genRan()
@@ -61,31 +57,52 @@ function initRoll(){
      diceFive.innerText = num5
      let arrayOne = [num1 , num2, num3, num4, num5]
      let checkThrees = arrayOne.filter(num => num === 3)
+    minOne = Math.min.apply(Math, arrayOne)
      threesRolled = checkThrees.length
      //console.log(checkThrees)
      //console.log(threesRolled)
+    // console.log(`min one is ${minOne}`)
      if (threesRolled === 0){
-        rollTwoDiceCount = 5 - 1 
+        rollTwoDiceCount = 5 - 1
+        rolledDice.push(minOne) 
+        console.log(`the lowest dice was ${rolledDice}`)
+        console.log(`the number of dice to be rolled on the next turn is ${rollTwoDiceCount}`);
      } else{
         rollTwoDiceCount = 5 - threesRolled
+        rolledDice.push(checkThrees)
+        console.log(`the number of dice to be rolled on the next turn is ${rollTwoDiceCount}`)
+        //console.log(checkThrees)
      }
-  
-     console.log(rollTwoDiceCount)
-
   } 
 //after roll 1 I want to count the number of dice
 //that do not have value 3 minus the lowest dice
 //this will give me the total number of dice of roll two
 
-
 function secondRoll(){
-  console.log("on the secon roll")
+arraySecond = Array.from({length: rollTwoDiceCount } , genRan)
+console.log(`your second role was ${arraySecond}`)
+minTwo = Math.min.apply(Math, arraySecond)
+checkThrees2 = arraySecond.filter(num => num ===3)
+threesRolled2 = checkThrees2.length
+console.log(`you rolled ${threesRolled2} three on your second roll`)
+
+if (threesRolled === 0){
+  rollThreeDiceCount = rollTwoDiceCount - 1
+  rolledDice.push(minTwo) 
+  console.log(`the number of dice to be rolled on the next turn is ${rollThreeDiceCount}`);
+
+} else{
+  rollThreeDiceCount = rollTwoDiceCount - threesRolled2
+  rolledDice.push(checkThrees2)
+  console.log(`the number of dice to be rolled on the next turn is ${rollThreeDiceCount}`)
+  
+}
+
 }
 
 
-
 function thirdRoll(){
-console.log("on the thrid roll")
+console.log("on the third roll")
 }
 
 
@@ -103,5 +120,5 @@ function genRan(){
     return value
 }
 
-// generateRandom()
-// console.log(generateRandom())
+
+console.log(rolledDice)
