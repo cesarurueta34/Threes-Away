@@ -16,8 +16,8 @@ let count = 0
 
 let rolledDice = []
 let unrolledDice = []
-// let reducedRolledDice = [].concat.apply([], rolledDice)
-// console.log(reducedRolledDice)
+
+  console.log(reducedRolledDice)
 function turnBegin(){
   if (count === 0){
     initRoll()
@@ -41,17 +41,15 @@ function turnBegin(){
 }
 
 function initRoll(){
-        let num1 = genRan()
-        let num2 = genRan()
-        let num3 = genRan()
-        let num4 = genRan()
-        let num5 = genRan()
-     diceOne.innerText = num1
-     diceTwo.innerText = num2
-     diceThree.innerText = num3
-     diceFour.innerText = num4
-     diceFive.innerText = num5
-     let arrayOne = [num1 , num2, num3, num4, num5]
+
+  unrolledDice = Array.from({length: 5 } , genRan)
+
+     diceOne.innerText = unrolledDice[0]
+     diceTwo.innerText = unrolledDice[1]
+     diceThree.innerText = unrolledDice[2]
+     diceFour.innerText = unrolledDice[3]
+     diceFive.innerText = unrolledDice[4]
+     let arrayOne = [unrolledDice[0] , unrolledDice[1], unrolledDice[2], unrolledDice[3], unrolledDice[4]]
      let checkThrees = arrayOne.filter(num => num === 3)
     minOne = Math.min.apply(Math, arrayOne)
      threesRolled = checkThrees.length
