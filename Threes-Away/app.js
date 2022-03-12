@@ -14,6 +14,21 @@ let updateSum =document.querySelector(".sum")
 
 rollButton.addEventListener("click", turnBegin)
 
+
+
+//to make multiplayer, when end turn button pressed (pass over the dice). update display to say PlayerTwo. 
+//when end turn is clicked it should reset the count and score back to zero so that the next roller can keep score.
+//it should also reset the array rolledDice and unrolled Dice to be empty. when end turn is pressed the data for the player shoudl be stored
+
+//need to creat a div that serves as a scorebox/tally holder that is not deleted and used for the final score comparison
+
+//populate the player one score in another div so that it can be used for comparison
+//add abutton that has a prompt for how many players are wanted
+//from the information in that button, maximize the size of the player score data storage
+//add a calculate winner button
+
+
+
 let count = 0
 let score = 0
 let rolledDice = []
