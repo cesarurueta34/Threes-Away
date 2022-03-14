@@ -10,9 +10,10 @@ let rThree = document.querySelector("#rolled3");
 let rFour = document.querySelector("#rolled4");
 let rFive = document.querySelector("#rolled5");
 let rollCount = document.querySelector(".roll-num")
-let updateSum =document.querySelector(".sum")
-
+let updateSum = document.querySelector(".sum")
+let endButton = document.querySelector(".end")
 rollButton.addEventListener("click", turnBegin)
+endButton.addEventListener("click" , endTurn)
 
 
 
@@ -33,6 +34,7 @@ let count = 0
 let score = 0
 let rolledDice = []
 let unrolledDice = []
+let playerDisplay = 1
 
 function turnBegin(){
   if (count === 0){
@@ -178,4 +180,15 @@ function minAndThrees(){
   min = Math.min.apply(Math, unrolledDice)
   checkThrees = unrolledDice.filter(num => num ===3)
   threesRolled = checkThrees.length
+}
+
+
+function endTurn(){
+  count = 0
+  rolledDice = []
+  unRolledDice = []
+  displayRolled()
+  displayUnrolled()
+  playerDisplay++
+  //console.log(playerDisplay)
 }

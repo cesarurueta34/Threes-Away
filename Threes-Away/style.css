@@ -35,3 +35,18 @@ body{
      font-size: 40px;
      font-weight: bold;
  }
+
+
+ .score-table {
+    position: absolute;
+    left: 10px;
+    display:inline-block;
+    border: black solid 2px;
+    cursor: pointer; 
+    padding: 100px;
+ }
+
+ .score-container {
+    position: absolute;
+    left: 15x;
+ }
