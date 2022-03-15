@@ -12,6 +12,8 @@ let rFive = document.querySelector("#rolled5");
 let rollCount = document.querySelector(".roll-num")
 let updateSum = document.querySelector(".sum")
 let endButton = document.querySelector(".end")
+let playerNum = document.querySelector(".pop-player")
+let scoreTable = document.querySelector(".score-table")
 rollButton.addEventListener("click", turnBegin)
 endButton.addEventListener("click" , endTurn)
 
@@ -190,5 +192,9 @@ function endTurn(){
   displayRolled()
   displayUnrolled()
   playerDisplay++
+  playerNum.innerText = playerDisplay
+  let pscore = document.createElement("li")
+  pscore.appendChild(document.createTextNode(`Player ${playerDisplay -1} scored `))
+  scoreTable.appendChild(pscore)
   //console.log(playerDisplay)
 }

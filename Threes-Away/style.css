@@ -17,8 +17,8 @@ body{
      text-align: center;
  }
  
- .player-one{
-    font-size: 50px;
+ .player{
+    font-size: 100px;
     font-weight: bold;
  }
  .score-box{
