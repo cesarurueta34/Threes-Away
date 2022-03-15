@@ -37,6 +37,7 @@ let score = 0
 let rolledDice = []
 let unrolledDice = []
 let playerDisplay = 1
+playerNum.innerText = 1
 
 function turnBegin(){
   if (count === 0){
@@ -141,7 +142,7 @@ function fifthRoll(){
   if (threesRolled == 0){
     rollSixDiceCount = rollFiveDiceCount - 1
     rolledDice.push(min) 
-  } else if (threesRolled5 !== 0 && rolledDice.length < 5){
+  } else if (threesRolled !== 0 && rolledDice.length < 5){
     rollSixDiceCount = rollFiveDiceCount - threesRolled
     rolledDice.push(...checkThrees)
   } else{
@@ -159,7 +160,7 @@ function updateScore(){
   notZero =rolledDice.filter(num => num !== 3)
   let sum = notZero.reduce((a, b) => a + b, 0)
   updateSum.innerText = sum
-  console.log(sum);
+  //console.log(sum);
 }
 
 function displayUnrolled(){
@@ -194,7 +195,8 @@ function endTurn(){
   playerDisplay++
   playerNum.innerText = playerDisplay
   let pscore = document.createElement("li")
-  pscore.appendChild(document.createTextNode(`Player ${playerDisplay -1} scored `))
+ let finalScore = document.querySelector(".sum").innerText
+  pscore.appendChild(document.createTextNode(`Player ${playerDisplay -1} scored: ${finalScore} `))
   scoreTable.appendChild(pscore)
   //console.log(playerDisplay)
 }
