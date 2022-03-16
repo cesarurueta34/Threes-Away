@@ -40,28 +40,27 @@ function turnBegin(){
   if (count === 0 && rolledDice.length <=5){
     initRoll()
     count++
-    rollCount.innerText = count
+    //rollCount.innerText = count
     updateScore()
-    console.log(` these are the rolled dice count ${rolledDice}`)
   } else if(count === 1 && rolledDice.length <=5){
     secondRoll()
     count++
-    rollCount.innerText = count
+    //rollCount.innerText = count
       updateScore()
   } else if (count === 2 && rolledDice.length <=5){
     thirdRoll()
     count++
-    rollCount.innerText = count
+    //rollCount.innerText = count
       updateScore()
   } else if(count === 3 && rolledDice.length <=5){
     fourthRoll()
     count++
-    rollCount.innerText = count
+   // rollCount.innerText = count
     updateScore()
   } else if(count === 4 && rolledDice.length <=5){
     fifthRoll()
     count++
-    rollCount.innerText = count
+    //rollCount.innerText = count
     updateScore()
   } else {
    console.log("stop clicking")
@@ -155,10 +154,12 @@ function genRan(){
 }
 
 function updateScore(){
+  if (rolledDice.length <=5){
   notZero =rolledDice.filter(num => num !== 3)
   let sum = notZero.reduce((a, b) => a + b, 0)
   updateSum.innerText = sum
   console.log(sum);
+  }
 }
 
 function displayUnrolled(){
