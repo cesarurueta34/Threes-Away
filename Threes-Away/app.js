@@ -43,7 +43,7 @@ function turnBegin(){
     rollCount.innerText = count
     updateScore()
     console.log(` these are the rolled dice count ${rolledDice}`)
-  } else if(count === 1 && rolledDice <=5){
+  } else if(count === 1 && rolledDice.length <=5){
     secondRoll()
     count++
     rollCount.innerText = count
