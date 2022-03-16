@@ -17,7 +17,7 @@ let scoreTable = document.querySelector(".score-table")
 rollButton.addEventListener("click", turnBegin)
 endButton.addEventListener("click" , endTurn)
 
-
+let numberPlayers = document.querySelector(".total-players").value
 
 //to make multiplayer, when end turn button pressed (pass over the dice). update display to say PlayerTwo. 
 //when end turn is clicked it should reset the count and score back to zero so that the next roller can keep score.
@@ -31,7 +31,7 @@ endButton.addEventListener("click" , endTurn)
 //add a calculate winner button
 
 
-
+let playerCounter = 1
 let count = 0
 let score = 0
 let rolledDice = []
@@ -186,7 +186,14 @@ function minAndThrees(){
 }
 
 
+//need to make a conditions that says if and only if
+//the rolledDice array has length of 5 then the end turn button can be pressed
+
+
 function endTurn(){
+  playerCounter++
+  //when player Counter hit the number in the form value, stop appending
+  // that is when the score needs to be calculated and a comparison needs to be made. 
   count = 0
   rolledDice = []
   unRolledDice = []
