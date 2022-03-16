@@ -17,19 +17,10 @@ let scoreTable = document.querySelector(".score-table")
 rollButton.addEventListener("click", turnBegin)
 endButton.addEventListener("click" , endTurn)
 
-let numberPlayers = document.querySelector(".total-players").value
 
-//to make multiplayer, when end turn button pressed (pass over the dice). update display to say PlayerTwo. 
-//when end turn is clicked it should reset the count and score back to zero so that the next roller can keep score.
-//it should also reset the array rolledDice and unrolled Dice to be empty. when end turn is pressed the data for the player shoudl be stored
 
-//need to creat a div that serves as a scorebox/tally holder that is not deleted and used for the final score comparison
-
-//populate the player one score in another div so that it can be used for comparison
-//add abutton that has a prompt for how many players are wanted
-//from the information in that button, maximize the size of the player score data storage
-//add a calculate winner button
-
+let numberPlayers = document.querySelector("#total-players").value
+console.log(numberPlayers)
 
 let playerCounter = 1
 let count = 0
@@ -38,6 +29,12 @@ let rolledDice = []
 let unrolledDice = []
 let playerDisplay = 1
 playerNum.innerText = 1
+
+if (rolledDice.length !== 5){
+  endButton.classList.add("hidden")
+} else if (rolledDice.length > 4){
+  endButton.classList.remove("hidden")
+}
 
 function turnBegin(){
   if (count === 0){
@@ -188,10 +185,13 @@ function minAndThrees(){
 
 //need to make a conditions that says if and only if
 //the rolledDice array has length of 5 then the end turn button can be pressed
+//can add a class to hide the the end turn button when the dice array is not 5
 
 
 function endTurn(){
-  playerCounter++
+  playerCounter = playerCounter + 1
+  
+  console.log(playerCounter)
   //when player Counter hit the number in the form value, stop appending
   // that is when the score needs to be calculated and a comparison needs to be made. 
   count = 0
@@ -205,5 +205,4 @@ function endTurn(){
  let finalScore = document.querySelector(".sum").innerText
   pscore.appendChild(document.createTextNode(`Player ${playerDisplay -1} scored: ${finalScore} `))
   scoreTable.appendChild(pscore)
-  //console.log(playerDisplay)
 }

@@ -11,7 +11,8 @@
 .end{
     display:inline-block;
     border: black solid 2px;
-    cursor:pointer  
+    cursor:pointer;
+    opacity: 1;  
 }
 body{
      text-align: center;
@@ -49,4 +50,8 @@ body{
  .score-container {
     position: absolute;
     left: 15x;
+ }
+
+ .hidden {
+     opacity: 0;
  }
