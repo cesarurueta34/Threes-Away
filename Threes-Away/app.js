@@ -15,14 +15,17 @@ let endButton = document.querySelector(".end")
 let playerNum = document.querySelector(".pop-player")
 let scoreTable = document.querySelector(".score-table")
 rollButton.addEventListener("click", turnBegin)
-endButton.addEventListener("click" , endTurn)
+
+
+//endButton.addEventListener("click" , endTurn)
+
 
 
 
 let numberPlayers = document.querySelector("#total-players").value
 console.log(numberPlayers)
 
-let playerCounter = 1
+//let playerCounter = 1
 let count = 0
 let score = 0
 let rolledDice = []
@@ -30,11 +33,6 @@ let unrolledDice = []
 let playerDisplay = 1
 playerNum.innerText = 1
 
-if (rolledDice.length !== 5){
-  endButton.classList.add("hidden")
-} else if (rolledDice.length > 4){
-  endButton.classList.remove("hidden")
-}
 
 function turnBegin(){
   if (count === 0 && rolledDice.length <=5){
@@ -62,10 +60,9 @@ function turnBegin(){
     count++
     //rollCount.innerText = count
     updateScore()
-  } else {
-   console.log("stop clicking")
+  } if (count > 0 && rolledDice.length > 4) {
+    endButton.addEventListener("click" , endTurn)
   }
-
 }
 
 function initRoll(){
@@ -191,9 +188,6 @@ function minAndThrees(){
 
 
 function endTurn(){
-  playerCounter = playerCounter + 1
-  
-  console.log(playerCounter)
   //when player Counter hit the number in the form value, stop appending
   // that is when the score needs to be calculated and a comparison needs to be made. 
   count = 0
