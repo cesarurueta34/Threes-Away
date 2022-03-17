@@ -16,20 +16,22 @@ let playerNum = document.querySelector(".pop-player")
 let scoreTable = document.querySelector(".score-table")
 rollButton.addEventListener("click", turnBegin)
 
-
+let numberPlayers = null
+let targetForm = document.querySelector("#form1")
+targetForm.addEventListener("submit" , function(ev){
+  ev.preventDefault()
+  numberPlayers = document.querySelector("#total-players").value
+  console.log(numberPlayers)
+})
 //endButton.addEventListener("click" , endTurn)
 
-
-
-
-let numberPlayers = document.querySelector("#total-players").value
-console.log(numberPlayers)
 
 //let playerCounter = 1
 let count = 0
 let score = 0
 let rolledDice = []
-let unrolledDice = []
+let unrolledDice = [] 
+// [0 1 2 3]
 let playerDisplay = 1
 playerNum.innerText = 1
 
@@ -159,7 +161,15 @@ function updateScore(){
   }
 }
 
+//dice map key number value is link to the image. 
+//{1: link/place}
+
+
+//make innertext--  background-image
+
 function displayUnrolled(){
+
+  //
   diceOne.innerText = unrolledDice[0]
   diceTwo.innerText = unrolledDice[1]
   diceThree.innerText = unrolledDice[2]
@@ -182,11 +192,12 @@ function minAndThrees(){
 }
 
 
+
 //need to make a conditions that says if and only if
 //the rolledDice array has length of 5 then the end turn button can be pressed
 //can add a class to hide the the end turn button when the dice array is not 5
 
-
+//determineWinnner = []
 function endTurn(){
   //when player Counter hit the number in the form value, stop appending
   // that is when the score needs to be calculated and a comparison needs to be made. 
@@ -199,6 +210,13 @@ function endTurn(){
   playerNum.innerText = playerDisplay
   let pscore = document.createElement("li")
  let finalScore = document.querySelector(".sum").innerText
+//determineWinner.push(finalScore)
+ if(document.querySelectorAll("li").length < numberPlayers) {
   pscore.appendChild(document.createTextNode(`Player ${playerDisplay -1} scored: ${finalScore} `))
   scoreTable.appendChild(pscore)
+  //calculate winner
+ }
+//hide things that are no longer releveant
 }
+
+//playersDone = document.querySelectorAll("li")[x].value
