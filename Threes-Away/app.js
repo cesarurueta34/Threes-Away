@@ -229,7 +229,6 @@ function endTurn(){
   rolledDice = []
   unRolledDice = []
   resetRolled()
-  resetUnrolled()
   playerDisplay++
   playerNum.innerText = playerDisplay
   let pscore = document.createElement("li")
@@ -252,6 +251,12 @@ function resetRolled(){
   rThree.style.backgroundImage = `url(${diceMap[7]})`
   rFour.style.backgroundImage = `url(${diceMap[7]})`
   rFive.style.backgroundImage = `url(${diceMap[7]})`
+
+  diceOne.style.backgroundImage = `url(${diceMap[unrolledDice[7]]})`
+  diceTwo.style.backgroundImage = `url(${diceMap[unrolledDice[7]]})`
+  diceThree.style.backgroundImage = `url(${diceMap[unrolledDice[7]]})`
+  diceFour.style.backgroundImage = `url(${diceMap[unrolledDice[7]]})`
+  diceFive.style.backgroundImage = `url(${diceMap[unrolledDice[7]]})`
 }
 
 // function resetUnrolled(){
