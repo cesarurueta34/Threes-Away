@@ -2,6 +2,7 @@
     display:inline-block;
     border: black solid 2px;
     padding: 50px;
+    background-size: contain;
 }
 .roll{
     display:inline-block;

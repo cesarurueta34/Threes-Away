@@ -36,6 +36,8 @@ let playerDisplay = 1
 playerNum.innerText = 1
 
 
+
+
 function turnBegin(){
   if (count === 0 && rolledDice.length <=5){
     initRoll()
@@ -167,22 +169,41 @@ function updateScore(){
 
 //make innertext--  background-image
 
-function displayUnrolled(){
-
-  //
-  diceOne.innerText = unrolledDice[0]
-  diceTwo.innerText = unrolledDice[1]
-  diceThree.innerText = unrolledDice[2]
-  diceFour.innerText = unrolledDice[3]
-  diceFive.innerText = unrolledDice[4]
+let diceMap = {
+  1: "http://clipart-library.com/images/pc5r4XGXi.png" , 
+  2: "http://clipart-library.com/new_gallery/dice-clipart-23.png" ,
+  3: "http://clipart-library.com/images/6ipoEEXiE.png" , 
+  4: "http://clipart-library.com/images/8TGbX8AGc.png" , 
+  5: "http://clipart-library.com/images/kT8kkKgGc.png" , 
+  6: "http://clipart-library.com/images/di9KEe4i7.png" ,
+  7: "http://clipart-library.com/images/di9rbGj4T.jpg"
 }
 
+let diceEl = [diceOne, diceTwo, diceThree , diceFour, diceFive]
+function displayUnrolled(){
+
+for (let i = 0; i <unrolledDice.length; i++){
+ diceEl[i].style.backgroundImage = `url(${diceMap[unrolledDice[i]]})`
+}
+
+
+   //diceOne.innerText = unrolledDice[0]
+    //diceTwo.innerText = unrolledDice[1]
+   //diceThree.innerText = unrolledDice[2]
+  //diceFour.innerText = unrolledDice[3]
+  //diceFive.innerText = unrolledDice[4]
+}
+
+let diceEl2 = [rOne, rTwo, rThree , rFour, rFive]
 function displayRolled(){
-  rOne.innerText = rolledDice[0]
-  rTwo.innerText = rolledDice[1]
-  rThree.innerText = rolledDice[2]
-  rFour.innerText = rolledDice[3]
-  rFive.innerText = rolledDice[4]
+  for (let i = 0; i <rolledDice.length; i++){
+    diceEl2[i].style.backgroundImage = `url(${diceMap[rolledDice[i]]})`
+  }
+  //rOne.innerText = rolledDice[0]
+  //rTwo.innerText = rolledDice[1]
+  //rThree.innerText = rolledDice[2]
+  //rFour.innerText = rolledDice[3]
+  //rFive.innerText = rolledDice[4]
 }
 
 function minAndThrees(){
@@ -204,8 +225,7 @@ function endTurn(){
   count = 0
   rolledDice = []
   unRolledDice = []
-  displayRolled()
-  displayUnrolled()
+  resetRolled()
   playerDisplay++
   playerNum.innerText = playerDisplay
   let pscore = document.createElement("li")
@@ -220,3 +240,13 @@ function endTurn(){
 }
 
 //playersDone = document.querySelectorAll("li")[x].value
+
+
+function resetRolled(){
+  
+  rOne.style.backgroundImage = `url(${diceMap[7]})`
+  rTwo.style.backgroundImage = `url(${diceMap[7]})`
+  rThree.style.backgroundImage = `url(${diceMap[7]})`
+  rFour.style.backgroundImage = `url(${diceMap[7]})`
+  rFive.style.backgroundImage = `url(${diceMap[7]})`
+}
