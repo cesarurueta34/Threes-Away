@@ -179,17 +179,20 @@ let diceMap = {
   7: "http://clipart-library.com/images/di9rbGj4T.jpg"
 }
 
-let diceEl = [diceOne, diceTwo, diceThree , diceFour, diceFive]
+//let diceEl = [diceOne, diceTwo, diceThree , diceFour, diceFive]
 function displayUnrolled(){
 
-for (let i = 0; i <unrolledDice.length; i++){
- diceEl[i].style.backgroundImage = `url(${diceMap[unrolledDice[i]]})`
-}
+//for (let i = 0; i <unrolledDice.length; i++){
+ //diceEl[i].style.backgroundImage = `url(${diceMap[unrolledDice[i]]})`
+//}
 
-
-   //diceOne.innerText = unrolledDice[0]
-    //diceTwo.innerText = unrolledDice[1]
-   //diceThree.innerText = unrolledDice[2]
+  diceOne.style.backgroundImage = `url(${diceMap[unrolledDice[0]]})`
+  diceTwo.style.backgroundImage = `url(${diceMap[unrolledDice[1]]})`
+  diceThree.style.backgroundImage = `url(${diceMap[unrolledDice[2]]})`
+  diceFour.style.backgroundImage = `url(${diceMap[unrolledDice[3]]})`
+  diceFive.style.backgroundImage = `url(${diceMap[unrolledDice[4]]})`
+  //diceTwo.innerText = unrolledDice[1]
+  //diceThree.innerText = unrolledDice[2]
   //diceFour.innerText = unrolledDice[3]
   //diceFive.innerText = unrolledDice[4]
 }
@@ -226,6 +229,7 @@ function endTurn(){
   rolledDice = []
   unRolledDice = []
   resetRolled()
+  resetUnrolled()
   playerDisplay++
   playerNum.innerText = playerDisplay
   let pscore = document.createElement("li")
@@ -243,10 +247,17 @@ function endTurn(){
 
 
 function resetRolled(){
-  
   rOne.style.backgroundImage = `url(${diceMap[7]})`
   rTwo.style.backgroundImage = `url(${diceMap[7]})`
   rThree.style.backgroundImage = `url(${diceMap[7]})`
   rFour.style.backgroundImage = `url(${diceMap[7]})`
   rFive.style.backgroundImage = `url(${diceMap[7]})`
 }
+
+// function resetUnrolled(){
+//   diceOne.style.backgroundImage = `url(${diceMap[7]})`
+//   diceTwo.style.backgroundImage = `url(${diceMap[7]})`
+//   diceThree.style.backgroundImage = `url(${diceMap[7]})`
+//   diceFour.style.backgroundImage = `url(${diceMap[7]})`
+//   diceFive.style.backgroundImage = `url(${diceMap[7]})`
+// }
