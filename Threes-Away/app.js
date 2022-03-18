@@ -153,13 +153,13 @@ function updateScore(){
 }
 
 let diceMap = {
-  1: "./http://clipart-library.com/images/pc5r4XGXi.png" , 
-  2: "./http://clipart-library.com/new_gallery/dice-clipart-23.png" ,
-  3: "./http://clipart-library.com/images/6ipoEEXiE.png" , 
-  4: "./http://clipart-library.com/images/8TGbX8AGc.png" , 
-  5: "./http://clipart-library.com/images/kT8kkKgGc.png" , 
-  6: "./http://clipart-library.com/images/di9KEe4i7.png" ,
-  7: "./http://clipart-library.com/img1/1008287.bmp"
+  1: "dice1.png" , 
+  2: "dice2.png" ,
+  3: "dice3.png" , 
+  4: "dice4.png" , 
+  5: "dice5.png" , 
+  6: "dice6.png" ,
+  7: "blank.png"
 }
 
 function displayUnrolled(){
