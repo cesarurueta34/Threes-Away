@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>THREES AWAY DICE GAME</h1>
+    <p>Basic Rules: Threes count as zero. Must take threes out when rolled. At least one dice must always be taken out(lowest number). Maximum of 5 rolls. Lowest score wins. In the score Table the winner will be marked in blue after all players have rolled. Make sure to hit SUBMIT!!!</p>
+    
+    <form id="form1">
+    <label for="numPlayers">Please enter the number of desired players</label><br>
+     <input type="text" id="total-players"><br>
+     <input type ="submit" value="Submit">
+    </form>
+
+<div class="score-container">
+   <h2>Players Scores</h2> 
+<ul class="score-table">
+    <h3></h3>
+</ul>
+</div>
+
+<span class="container-one">  
+    <div class="player">Player: <p class="pop-player"></p></div>
+   <div id="player"class="score-box">Score: <div class="sum"></div> </div>
+    </br>
+    <div class="unrolled-dice">
+     <h2>Unrolled Dice</h2>
+        <div id="dice1"class="dice"></div>
+        <div id="dice2"class="dice"></div>
+        <div id="dice3"class="dice"></div>
+        <div id="dice4"class="dice"></div>
+        <div id="dice5"class="dice"></div>
+    </div>
+</br>
+    <div class="rolled-dice">
+        <h2>Rolled Dice (Pulled Away)</h2>
+        <div class="display-array"></div>
+        <div id="rolled1"class="dice"></div>
+        <div id="rolled2"class="dice"></div>
+        <div id="rolled3"class="dice"></div>
+        <div id="rolled4"class="dice"></div>
+        <div id="rolled5"class="dice"></div>
+    </div>
+</br>
+<div class="roll">Roll Button</div>
+<div class="end">Pass The Dice</div>
+</span>  
+
+<script src="app.js"></script>  
+</body>
+</html>
