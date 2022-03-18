@@ -41,11 +41,12 @@ body{
 
  .score-table {
     position: absolute;
-    left: 10px;
+    left: 5px;
     display:inline-block;
     border: black solid 2px;
     cursor: pointer; 
-    padding: 100px;
+    padding: 20px;
+    width: 300px;
  }
 
  .score-container {
@@ -63,4 +64,8 @@ body{
 
  .color{
      color: blue;
+ }
+
+ ul{
+     display: inline;
  }
