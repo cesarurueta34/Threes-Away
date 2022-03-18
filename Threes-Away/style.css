@@ -47,6 +47,7 @@ body{
     cursor: pointer; 
     padding: 20px;
     width: 300px;
+    background-color: lightgray;
  }
 
  .score-container {
@@ -68,4 +69,8 @@ body{
 
  ul{
      display: inline;
+ }
+ h3 {
+     font-size: 15px;
+     font-weight: bold;
  }

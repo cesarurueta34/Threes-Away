@@ -16,6 +16,7 @@ let playerNum = document.querySelector(".pop-player")
 let player = document.querySelector(".player")
 let scoreTable = document.querySelector(".score-table")
 let scoreBox = document.querySelector(".score-box")
+let displayTie = document.querySelector("h3")
 rollButton.addEventListener("click", turnBegin)
 
 let numberPlayers = null
@@ -23,48 +24,35 @@ let targetForm = document.querySelector("#form1")
 targetForm.addEventListener("submit" , function(ev){
   ev.preventDefault()
   numberPlayers = document.querySelector("#total-players").value
-  //console.log(numberPlayers)
 })
-//endButton.addEventListener("click" , endTurn)
 
-
-//let playerCounter = 1
 let count = 0
 let score = 0
 let rolledDice = []
 let unrolledDice = [] 
-// [0 1 2 3]
 let playerDisplay = 1
 playerNum.innerText = 1
-
-
-
 
 function turnBegin(){
   if (count === 0 && rolledDice.length <=5){
     initRoll()
     count++
-    //rollCount.innerText = count
     updateScore()
   } else if(count === 1 && rolledDice.length <=5){
     secondRoll()
     count++
-    //rollCount.innerText = count
       updateScore()
   } else if (count === 2 && rolledDice.length <=5){
     thirdRoll()
     count++
-    //rollCount.innerText = count
       updateScore()
   } else if(count === 3 && rolledDice.length <=5){
     fourthRoll()
     count++
-   // rollCount.innerText = count
     updateScore()
   } else if(count === 4 && rolledDice.length <=5){
     fifthRoll()
     count++
-    //rollCount.innerText = count
     updateScore()
   } if (count > 0 && rolledDice.length > 4) {
     endButton.addEventListener("click" , endTurn)
@@ -164,12 +152,6 @@ function updateScore(){
   }
 }
 
-//dice map key number value is link to the image. 
-//{1: link/place}
-
-
-//make innertext--  background-image
-
 let diceMap = {
   1: "http://clipart-library.com/images/pc5r4XGXi.png" , 
   2: "http://clipart-library.com/new_gallery/dice-clipart-23.png" ,
@@ -180,22 +162,12 @@ let diceMap = {
   7: "http://clipart-library.com/img1/1008287.bmp"
 }
 
-//let diceEl = [diceOne, diceTwo, diceThree , diceFour, diceFive]
 function displayUnrolled(){
-
-//for (let i = 0; i <unrolledDice.length; i++){
- //diceEl[i].style.backgroundImage = `url(${diceMap[unrolledDice[i]]})`
-//}
-
   diceOne.style.backgroundImage = `url(${diceMap[unrolledDice[0]]})`
   diceTwo.style.backgroundImage = `url(${diceMap[unrolledDice[1]]})`
   diceThree.style.backgroundImage = `url(${diceMap[unrolledDice[2]]})`
   diceFour.style.backgroundImage = `url(${diceMap[unrolledDice[3]]})`
   diceFive.style.backgroundImage = `url(${diceMap[unrolledDice[4]]})`
-  //diceTwo.innerText = unrolledDice[1]
-  //diceThree.innerText = unrolledDice[2]
-  //diceFour.innerText = unrolledDice[3]
-  //diceFive.innerText = unrolledDice[4]
 }
 
 let diceEl2 = [rOne, rTwo, rThree , rFour, rFive]
@@ -203,11 +175,6 @@ function displayRolled(){
   for (let i = 0; i <rolledDice.length; i++){
     diceEl2[i].style.backgroundImage = `url(${diceMap[rolledDice[i]]})`
   }
-  // rOne.style.backgroundImage = `url(${diceMap[unrolledDice[0]]})`
-  // rTwo.innerText = `url(${diceMap[unrolledDice[1]]})`
-  // rThree.innerText = `url(${diceMap[unrolledDice[2]]})`
-  // rFour.innerText = `url(${diceMap[unrolledDice[3]]})`
-  // rFive.innerText = `url(${diceMap[unrolledDice[4]]})`
 }
 
 function minAndThrees(){
@@ -216,16 +183,8 @@ function minAndThrees(){
   threesRolled = checkThrees.length
 }
 
-
-
-//need to make a conditions that says if and only if
-//the rolledDice array has length of 5 then the end turn button can be pressed
-//can add a class to hide the the end turn button when the dice array is not 5
-
 let winner = []
-function endTurn(){
-  //when player Counter hit the number in the form value, stop appending
-  // that is when the score needs to be calculated and a comparison needs to be made. 
+function endTurn(){ 
   count = 0
   rolledDice = []
   unRolledDice = []
@@ -234,25 +193,20 @@ function endTurn(){
   playerNum.innerText = playerDisplay
   let pscore = document.createElement("li")
  let finalScore = document.querySelector(".sum").innerText
-//determineWinner.push(finalScore)
  if(document.querySelectorAll("li").length < numberPlayers) {
   pscore.appendChild(document.createTextNode(`Player ${playerDisplay -1} scored: ${finalScore} `))
   scoreTable.appendChild(pscore)
   winner.push(`${finalScore}`)
-  //calculate winner
  } if (document.querySelectorAll("li").length >= numberPlayers) {
    playerNum.classList.add("hidden")
    updateSum.classList.add("hidden")
    scoreBox.classList.add("hidden")
    player.classList.add("hidden")
-
 indexWinner()
  }
-
 let winnerStyle = document.querySelectorAll("li")[`${indexOfWinner}`]
 winnerStyle.classList.add("color")
 }
-
 function resetRolled(){
   rOne.style.backgroundImage = `url(${diceMap[7]})`
   rTwo.style.backgroundImage = `url(${diceMap[7]})`
@@ -266,7 +220,6 @@ function resetRolled(){
   diceFour.style.backgroundImage = `url(${diceMap[unrolledDice[7]]})`
   diceFive.style.backgroundImage = `url(${diceMap[unrolledDice[7]]})`
 }
-
 let indexOfWinner = []
 function indexWinner(){
 let minWinner = Math.min(...winner)
@@ -274,5 +227,7 @@ winner.forEach(function(elem, index, array){
   if(elem == minWinner) {indexOfWinner.push(index)}
   return indexOfWinner
 }) 
-console.log(indexOfWinner)
+if (indexOfWinner.length > 1){
+  displayTie.innerText = `Press refresh and select new number of players to play again`
+}
 }
