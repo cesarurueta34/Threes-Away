@@ -1,0 +1,76 @@
+.dice{
+    display:inline-block;
+    border: black solid 2px;
+    padding: 50px;
+    background-size: contain;
+}
+.roll{
+    display:inline-block;
+    border: black solid 2px;
+    cursor:pointer
+}
+.end{
+    display:inline-block;
+    border: black solid 2px;
+    cursor:pointer;
+    opacity: 1;  
+}
+body{
+     text-align: center;
+ }
+ 
+ .player{
+    font-size: 20px;
+    font-weight: bold;
+ }
+ .score-box{
+     margin-top: 50px;
+     font-size: 20px;
+     font-weight: bold;
+ }
+ .roll-count{
+    font-size: 20px;
+    font-weight: bold;
+ }
+
+ .round-display{
+     font-size: 40px;
+     font-weight: bold;
+ }
+
+
+ .score-table {
+    position: absolute;
+    left: 5px;
+    display:inline-block;
+    border: black solid 2px;
+    cursor: pointer; 
+    padding: 20px;
+    width: 300px;
+    background-color: lightgray;
+ }
+
+ .score-container {
+    position: absolute;
+    left: 15x;
+ }
+
+ .hidden {
+     opacity: 0;
+ }
+ 
+ body {
+     background-color: lightblue;
+ }
+
+ .color{
+     color: blue;
+ }
+
+ ul{
+     display: inline;
+ }
+ h3 {
+     font-size: 15px;
+     font-weight: bold;
+ }
