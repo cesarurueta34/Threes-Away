@@ -154,8 +154,8 @@ function updateScore(){
 
 //map
 let diceMap = {
-  2: "../dice2.png" ,
-  1: "../dice1.png" , 
+  1: "../dice1.png" ,
+  2: "../dice2.png" , 
   3: "../dice3.png" , 
   4: "../dice4.png" , 
   5: "../dice5.png" , 
