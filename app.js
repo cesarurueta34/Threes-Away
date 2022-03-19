@@ -152,8 +152,6 @@ function updateScore(){
   }
 }
 
-
-https://cesarurueta34.github.io/Threes-Away
 let diceMap = {
   1: "https://cesarurueta34.github.io/Threes-Away/dice1.png" , 
   2: "https://cesarurueta34.github.io/Threes-Away/dice2.png" ,
