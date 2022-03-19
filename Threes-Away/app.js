@@ -152,6 +152,7 @@ function updateScore(){
   }
 }
 
+//map
 let diceMap = {
   1: "../dice1.png" , 
   2: "../dice2.png" ,
