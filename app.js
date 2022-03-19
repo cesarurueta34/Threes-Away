@@ -152,14 +152,15 @@ function updateScore(){
   }
 }
 
+https://cesarurueta34.github.io/dice1.png
 let diceMap = {
-  1: "../dice1.png" , 
-  2: "../dice2.png" ,
-  3: "../dice3.png" , 
-  4: "../dice4.png" , 
-  5: "../dice5.png" , 
-  6: "../dice6.png" ,
-  7: "../blank.png"
+  1: "https://cesarurueta34.github.io/dice1.png" , 
+  2: "https://cesarurueta34.github.io/dice2.png" ,
+  3: "https://cesarurueta34.github.io/dice3.png" , 
+  4: "https://cesarurueta34.github.io/dice4.png" , 
+  5: "https://cesarurueta34.github.io/dice5.png" , 
+  6: "https://cesarurueta34.github.io/dice6.png" ,
+  7: "https://cesarurueta34.github.io/blank.png"
 }
 
 function displayUnrolled(){
