@@ -153,13 +153,13 @@ function updateScore(){
 }
 
 let diceMap = {
-  1: "../dice1.png" , 
-  2: "../dice2.png" ,
-  3: "../dice3.png" , 
-  4: "../dice4.png" , 
-  5: "../dice5.png" , 
-  6: "../dice6.png" ,
-  7: "../blank.png"
+  1: "/dice1.png" , 
+  2: "/dice2.png" ,
+  3: "/dice3.png" , 
+  4: "/dice4.png" , 
+  5: "/dice5.png" , 
+  6: "/dice6.png" ,
+  7: "/blank.png"
 }
 
 function displayUnrolled(){
