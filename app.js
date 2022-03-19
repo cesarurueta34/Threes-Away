@@ -152,7 +152,6 @@ function updateScore(){
   }
 }
 
-https://cesarurueta34.github.io/dice1.png
 let diceMap = {
   1: "./dice1.png" , 
   2: "./dice2.png" ,
