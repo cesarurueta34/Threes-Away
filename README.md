@@ -26,6 +26,9 @@ This is a game played with 5 Dice. The goal is to get the lowest score. Threes c
 # Wire Frames
 <img width="1024" alt="image" src="https://user-images.githubusercontent.com/97326874/159099211-e25d3c0b-e602-4f54-9d90-c6dd2deadf14.png">
 
+![image](https://user-images.githubusercontent.com/97326874/159099294-78eebcf7-701b-4968-9503-5aed9a468838.png)
+
+
 # Video Describing Game
 
 https://www.youtube.com/watch?v=LrYoomhPcGw&t=5s
